@@ -13,13 +13,12 @@ const grabTrackList = async () => {
         artist: { "#text": artist },
         name: song,
         album: { "#text": album },
-        date: { uts: date },
       } = track;
       let isPlaying = false;
       if (track["@attr"]) {
         isPlaying = true;
       }
-      const data = { artist, song, album, date };
+      const data = { artist, song, album };
       if (isPlaying) {
         obj["nowPlaying"] = data;
       }

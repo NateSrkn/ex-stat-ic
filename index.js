@@ -1,13 +1,15 @@
 const express = require("express");
+const cors = require("cors");
 require("dotenv").config();
 
 // Endpoints
-const grabTrackList = require("../endpoints/tracks");
-const grabWeather = require("../endpoints/weather");
-const grabAge = require("../endpoints/age");
+const grabTrackList = require("./endpoints/tracks");
+const grabWeather = require("./endpoints/weather");
+const grabAge = require("./endpoints/age");
 
 const app = express();
-
+app.use(cors({ credentials: true, origin: true }));
+app.options("*", cors());
 app.get("/", (req, res) =>
   res.send({
     name: {
